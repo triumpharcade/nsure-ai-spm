@@ -1,0 +1,33 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name nSure
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+import Network
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import nSure
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NSureNetworkMonitor : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc public static let shared: nSure.NSureNetworkMonitor
+  @objc public func startMonitoring(callback: @escaping @Sendable (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NSureRemoteLogger : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc public static let shared: nSure.NSureRemoteLogger
+  @objc public var isProd: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var appId: Swift.String
+  @objc public func log(msg: Swift.String)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class NSureScreenshotDetector : ObjectiveC.NSObject {
+  @objc public static let shared: nSure.NSureScreenshotDetector
+  @objc final public var onScreenshotTaken: (() -> Swift.Void)?
+  @objc final public func startListening()
+  @objc final public func stopListening()
+  @objc deinit
+}
